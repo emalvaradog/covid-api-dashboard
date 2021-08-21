@@ -4,14 +4,93 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/style.css" />
     <title>Covid Dashboard</title>
   </head>
   <body>
     <header>
-      <h1>Covid-19 Dashboard</h1>
+      <h1>Covid Dashboard</h1>
     </header>
     <main>
-      <h1>Main</h1>
+      <section class="global">
+        <div class="global-card">
+          <div class="global-card-cases">
+            <h2 class="global-card-title">Global Cases:</h2>
+            <h2 class="global-card-casenum">35,211,200</h2>
+          </div>
+          <div class="global-card-vacc">
+            <h2 class="global-card-title">Global Vaccinated:</h2>
+            <h2 class="global-card-vacnum">35,211,200</h2>
+          </div>
+        </div>
+      </section>
+      <section class="continent">
+        <div class="continent-s1">
+          <div class="continent-card northamerica">
+            <h2 class="continent-title">North America</h2>
+            <div class="continent-data">
+              <h3 class="continent-data-title">Cases:</h3>
+              <h3 class="continent-data-number1 northamerica-cases">
+                1,219,975
+              </h3>
+              <h3 class="continent-data-title">Vaccinated:</h3>
+              <h3 class="continent-data-number2 northamerica-vacc">219,419</h3>
+            </div>
+          </div>
+          <div class="continent-card southamerica">
+            <h2 class="continent-title">South America</h2>
+            <div class="continent-data">
+              <h3 class="continent-data-title">Cases:</h3>
+              <h3 class="continent-data-number1 southamerica-cases">
+                1,219,975
+              </h3>
+              <h3 class="continent-data-title">Vaccinated:</h3>
+              <h3 class="continent-data-number2 southamerica-vacc">219,419</h3>
+            </div>
+          </div>
+        </div>
+        <div class="continent-s2">
+          <div class="continent-card europe">
+            <h2 class="continent-title">Europe</h2>
+            <div class="continent-data">
+              <h3 class="continent-data-title">Cases:</h3>
+              <h3 class="continent-data-number1 europe-cases">1,219,975</h3>
+              <h3 class="continent-data-title">Vaccinated:</h3>
+              <h3 class="continent-data-number2 europe-vacc">219,419</h3>
+            </div>
+          </div>
+          <div class="continent-card africa">
+            <h2 class="continent-title">Africa</h2>
+            <div class="continent-data">
+              <h3 class="continent-data-title">Cases:</h3>
+              <h3 class="continent-data-number1 africa-cases">1,219,975</h3>
+              <h3 class="continent-data-title">Vaccinated:</h3>
+              <h3 class="continent-data-number2 africa-vacc">219,419</h3>
+            </div>
+          </div>
+        </div>
+        <div class="continent-s3">
+          <div class="continent-card asia">
+            <h2 class="continent-title">Asia</h2>
+            <div class="continent-data">
+              <h3 class="continent-data-title">Cases:</h3>
+              <h3 class="continent-data-number1 asia-cases">1,219,975</h3>
+              <h3 class="continent-data-title">Vaccinated:</h3>
+              <h3 class="continent-data-number2 asia-vacc">219,419</h3>
+            </div>
+          </div>
+          <div class="continent-card oceania">
+            <h2 class="continent-title">Oceania</h2>
+            <div class="continent-data">
+              <h3 class="continent-data-title">Cases:</h3>
+              <h3 class="continent-data-number1 oceania-cases">1,219,975</h3>
+              <h3 class="continent-data-title">Vaccinated:</h3>
+              <h3 class="continent-data-number2 oceania-vacc">219,419</h3>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
+    <script src="../js/api.js"></script>
   </body>
 </html>

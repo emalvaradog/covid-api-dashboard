@@ -1,14 +1,16 @@
 const fetch = require("node-fetch");
 const API = "https://covid-api.mmediagroup.fr/v1/";
-let northAmerica = [];
-let southAmerica = [];
-let europe = [];
-let africa = [];
-let asia = [];
-let oceania = [];
 
 const continentList = async (url_api) => {
   try {
+    let northAmerica = [];
+    let southAmerica = [];
+    let europe = [];
+    let africa = [];
+    let asia = [];
+    let oceania = [];
+    let total = 0;
+
     // North America
     await fetch(`${url_api}cases?continent=North America`)
       .then((res) => res.json())
@@ -37,28 +39,14 @@ const continentList = async (url_api) => {
           vList.push(vSet);
         }
 
-        for (a in northAmerica) {
-        }
-        console.log(vList);
-        console.log(" - ");
-        console.log(northAmerica);
+        northAmerica.map((element) => {
+          for (const i in vList) {
+            if (element.country == vList[i].country) {
+              element.vaccinated = vList[i].vaccinated;
+            }
+          }
+        });
 
-        // northAmerica.forEach((element) => {
-
-        // })
-
-        // for (const i in vList) {
-        //   console.log(i);
-        //   if (northAmerica[i].country == vList[i].country) {
-        //     // console.log(northAmerica[i].country);
-        //     // console.log(vList[i].country);
-        //     // northAmerica[i].vaccinated = vList[i].vaccinated;
-        //   } else {
-        //     continue;
-        //   }
-        // }
-
-        // console.log(northAmerica);
         return northAmerica;
       })
       .catch((err) => console.error(err));
@@ -89,13 +77,13 @@ const continentList = async (url_api) => {
           };
           vList.push(vSet);
         }
-        for (const i in vList) {
-          if (southAmerica[i].country == vList[i].country) {
-            southAmerica[i].vaccinated = vList[i].vaccinated;
-          } else {
-            southAmerica.splice(i, 1);
+        southAmerica.map((element) => {
+          for (const i in vList) {
+            if (element.country == vList[i].country) {
+              element.vaccinated = vList[i].vaccinated;
+            }
           }
-        }
+        });
         return southAmerica;
       })
       .catch((err) => console.error(err));
@@ -126,17 +114,13 @@ const continentList = async (url_api) => {
           };
           vList.push(vSet);
         }
-        europe[europe.length - 1].vaccinated =
-          vList[vList.length - 1].vaccinated;
-
-        for (const i in vList) {
-          if (europe[i].country == vList[i].country) {
-            europe[i].vaccinated = vList[i].vaccinated;
-          } else {
-            europe.splice(i, 1);
+        europe.map((element) => {
+          for (const i in vList) {
+            if (element.country == vList[i].country) {
+              element.vaccinated = vList[i].vaccinated;
+            }
           }
-        }
-
+        });
         return europe;
       })
       .catch((err) => console.error(err));
@@ -167,21 +151,13 @@ const continentList = async (url_api) => {
           };
           vList.push(vSet);
         }
-
-        for (const i in vList) {
-          if (africa[i].country == vList[i].country) {
-            africa[i].vaccinated = vList[i].vaccinated;
-          } else {
-            africa.splice(i, 1);
+        africa.map((element) => {
+          for (const i in vList) {
+            if (element.country == vList[i].country) {
+              element.vaccinated = vList[i].vaccinated;
+            }
           }
-        }
-
-        // for (const i in vList) {
-        //   if (africa.find((element) => element.country == vList[i].country)) {
-        //   }
-        // }
-
-        // console.log(africa);
+        });
         return africa;
       })
       .catch((err) => console.error(err));
@@ -201,6 +177,28 @@ const continentList = async (url_api) => {
       })
       .catch((err) => console.error(err));
 
+    await fetch(`${url_api}vaccines?continent=Asia`)
+      .then((res) => res.json())
+      .then(function (vData) {
+        let vList = [];
+        for (let country in vData) {
+          let vSet = {
+            country: country,
+            vaccinated: vData[country]["All"]["administered"],
+          };
+          vList.push(vSet);
+        }
+        asia.map((element) => {
+          for (const i in vList) {
+            if (element.country == vList[i].country) {
+              element.vaccinated = vList[i].vaccinated;
+            }
+          }
+        });
+        return asia;
+      })
+      .catch((err) => console.error(err));
+
     // Oceania
     await fetch(`${url_api}cases?continent=Oceania`)
       .then((res) => res.json())
@@ -212,6 +210,28 @@ const continentList = async (url_api) => {
           };
           oceania.push(dataList);
         }
+        return oceania;
+      })
+      .catch((err) => console.error(err));
+
+    await fetch(`${url_api}vaccines?continent=Oceania`)
+      .then((res) => res.json())
+      .then(function (vData) {
+        let vList = [];
+        for (let country in vData) {
+          let vSet = {
+            country: country,
+            vaccinated: vData[country]["All"]["administered"],
+          };
+          vList.push(vSet);
+        }
+        oceania.map((element) => {
+          for (const i in vList) {
+            if (element.country == vList[i].country) {
+              element.vaccinated = vList[i].vaccinated;
+            }
+          }
+        });
         return oceania;
       })
       .catch((err) => console.error(err));

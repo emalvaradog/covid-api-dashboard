@@ -1,0 +1,113 @@
+$background-color: #0d1321;
+$card-color: #141d33;
+$font-color: #ebebeb;
+$subfont-color: #cacaca;
+$red-color: #c42021;
+$purple-color: #722690;
+$blue-color: #279af1;
+$card-radius: 8px;
+
+* {
+    margin: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: Inter;
+}
+
+body {
+    background-color: $background-color;
+}
+
+header {
+    width: 100%;
+    height: 6rem;
+    display: flex;
+    margin: 1.5rem 0;
+    justify-content: center;
+    align-items: center;
+    color: $font-color;
+    font-size: 1.3rem;
+}
+
+.global {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    &-card {
+        width: max-content;
+        background-color: $card-color;
+        padding: 1.2rem 1rem;
+        height: max-content;
+        border-radius: $card-radius;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border-top: 3px $purple-color solid;
+        font-size: 1.2rem;
+        &-cases {
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 1rem;
+        }
+        &-vacc {
+            display: flex;
+            flex-direction: row;
+        }
+        &-title {
+            color: $font-color;
+            margin-right: 0.8rem;
+        }
+        &-casenum {
+            color: #c42021;
+        }
+        &-vacnum {
+            color: $blue-color;
+        }
+    }
+}
+
+.continent {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+    &-s1,
+    &-s2,
+    &-s3 {
+        display: flex;
+        flex-direction: row;
+    }
+    &-card {
+        border-top: 3px $purple-color solid;
+        width: 12rem;
+        margin: 1rem 1.2rem;
+        background-color: $card-color;
+        border-radius: $card-radius;
+        padding: 1rem 1.3rem;
+    }
+    &-title {
+        margin-bottom: 0.5rem;
+        color: $font-color;
+    }
+    &-data {
+        font-size: 1.15rem;
+        &-title {
+            margin-top: 1rem;
+            color: $subfont-color;
+        }
+        &-number1 {
+            color: $red-color;
+        }
+        &-number2 {
+            color: $blue-color;
+        }
+    }
+}
