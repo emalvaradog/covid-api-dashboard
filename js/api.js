@@ -1,4 +1,18 @@
-const fetch = require("node-fetch");
+const fetch = (api_url) => {
+  return new Promise((resolve, reject) => {
+    const xhttp = new XMLHttpRequest();
+    xhttp.open("GET", api_url, true);
+    xhttp.onreadystatechange = () => {
+      if (xhttp.readyState === 4) {
+        xhttp.status === 200
+          ? resolve(JSON.parse(xhttp.responseText))
+          : reject(new Error("Test Error", api_url));
+      }
+    };
+    xhttp.send();
+  });
+};
+
 const API = "https://covid-api.mmediagroup.fr/v1/";
 
 const continentList = async (url_api) => {
@@ -10,10 +24,8 @@ const continentList = async (url_api) => {
     let asia = [];
     let oceania = [];
     let total = 0;
-
     // North America
     await fetch(`${url_api}cases?continent=North America`)
-      .then((res) => res.json())
       .then(function (data) {
         for (const country in data) {
           let dataList = {
@@ -28,7 +40,6 @@ const continentList = async (url_api) => {
       .catch((err) => console.error(err));
 
     await fetch(`${url_api}vaccines?continent=North America`)
-      .then((res) => res.json())
       .then(function (vData) {
         let vList = [];
         for (let country in vData) {
@@ -53,7 +64,6 @@ const continentList = async (url_api) => {
 
     // South America
     await fetch(`${url_api}cases?continent=South America`)
-      .then((res) => res.json())
       .then(function (data) {
         for (const country in data) {
           let dataList = {
@@ -67,7 +77,6 @@ const continentList = async (url_api) => {
       .catch((err) => console.error(err));
 
     await fetch(`${url_api}vaccines?continent=South America`)
-      .then((res) => res.json())
       .then(function (vData) {
         let vList = [];
         for (let country in vData) {
@@ -90,7 +99,6 @@ const continentList = async (url_api) => {
 
     // Europe
     await fetch(`${url_api}cases?continent=Europe`)
-      .then((res) => res.json())
       .then(function (data) {
         for (const country in data) {
           let dataList = {
@@ -104,7 +112,6 @@ const continentList = async (url_api) => {
       .catch((err) => console.error(err));
 
     await fetch(`${url_api}vaccines?continent=Europe`)
-      .then((res) => res.json())
       .then(function (vData) {
         let vList = [];
         for (let country in vData) {
@@ -127,7 +134,6 @@ const continentList = async (url_api) => {
 
     // Africa
     await fetch(`${url_api}cases?continent=Africa`)
-      .then((res) => res.json())
       .then(function (data) {
         for (const country in data) {
           let dataList = {
@@ -141,7 +147,6 @@ const continentList = async (url_api) => {
       .catch((err) => console.error(err));
 
     await fetch(`${url_api}vaccines?continent=Africa`)
-      .then((res) => res.json())
       .then(function (vData) {
         let vList = [];
         for (let country in vData) {
@@ -164,7 +169,6 @@ const continentList = async (url_api) => {
 
     // Asia
     await fetch(`${url_api}cases?continent=Asia`)
-      .then((res) => res.json())
       .then(function (data) {
         for (const country in data) {
           let dataList = {
@@ -178,7 +182,6 @@ const continentList = async (url_api) => {
       .catch((err) => console.error(err));
 
     await fetch(`${url_api}vaccines?continent=Asia`)
-      .then((res) => res.json())
       .then(function (vData) {
         let vList = [];
         for (let country in vData) {
@@ -201,7 +204,6 @@ const continentList = async (url_api) => {
 
     // Oceania
     await fetch(`${url_api}cases?continent=Oceania`)
-      .then((res) => res.json())
       .then(function (data) {
         for (const country in data) {
           let dataList = {
@@ -215,7 +217,6 @@ const continentList = async (url_api) => {
       .catch((err) => console.error(err));
 
     await fetch(`${url_api}vaccines?continent=Oceania`)
-      .then((res) => res.json())
       .then(function (vData) {
         let vList = [];
         for (let country in vData) {
