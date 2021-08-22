@@ -34,15 +34,21 @@ header {
 }
 
 .global {
+    width: 100%;
     margin-top: 1rem;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    &-mark {
+        font-size: 2rem;
+        color: $subfont-color;
+        margin-bottom: 0.5rem;
+    }
     &-card {
-        width: max-content;
+        width: 80vw;
         background-color: $card-color;
-        padding: 1.2rem 1rem;
+        padding: 1rem;
         height: max-content;
         border-radius: $card-radius;
         display: flex;
@@ -73,32 +79,39 @@ header {
 }
 
 .continent {
-    margin-top: 1rem;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
     margin-bottom: 1rem;
+    // COLUMNS
     &-s1,
     &-s2,
     &-s3 {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
+    }
+    &-mark {
+        margin-top: 2rem;
+        font-size: 2rem;
+        color: $subfont-color;
     }
     &-card {
         border-top: 3px $purple-color solid;
-        width: 12rem;
+        width: 80vw;
         margin: 1rem 1.2rem;
         background-color: $card-color;
         border-radius: $card-radius;
         padding: 1rem 1.3rem;
     }
     &-title {
+        margin-top: 0.2rem;
+        font-size: 1.7rem;
         margin-bottom: 0.5rem;
         color: $font-color;
     }
     &-data {
-        font-size: 1.15rem;
+        font-size: 1.2rem;
         &-title {
             margin-top: 1rem;
             color: $subfont-color;
@@ -108,6 +121,31 @@ header {
         }
         &-number2 {
             color: $blue-color;
+        }
+    }
+}
+
+@media (min-width: 426px) {
+    .continent {
+        &-s1,
+        &-s2,
+        &-s3 {
+            display: flex;
+            flex-direction: row;
+        }
+        &-card {
+            width: 30vw;
+        }
+        &-data {
+            &-title {
+                font-size: 1.5rem;
+            }
+        }
+    }
+    .global {
+        &-card {
+            width: 61.5vw;
+            height: 8rem;
         }
     }
 }
