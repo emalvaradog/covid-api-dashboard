@@ -4,4 +4,4 @@ Simple responsive Covid-19 information dashboard connected to [M Media Group Cov
 
 ## Take a look [here](https://emanuelalvaradog.github.io/covid-api-dashboard/)
 
-### **API is not working as before. Changes have to be make**
+### **API is not working as it used to. Changes have to be made**
